@@ -1,3 +1,4 @@
+cat << 'EOF' > DOCUMENTATION.md
 # 📔 Journal de Bord & Architecture - PrestaChrono
 
 Ce document retrace les choix technologiques, l'architecture globale et l'historique de déploiement de la plateforme **PrestaChrono**, une solution de réservation d'événements en temps réel dédiée aux CHR (Cafés, Hôtels, Restaurants).
@@ -66,9 +67,13 @@ Pour ce projet, l'objectif était d'avoir une infrastructure robuste, performant
 ## 🚀 Prochaines Étapes prévues
 1.  **Modélisation Supabase :** Création des tables PostgreSQL (Établissements, Prestations, Réservations).
 2.  **Moteur Calendrier :** Intégration d'un calendrier et connexion aux fonctionnalités temps réel de Supabase.
+EOF
 
-### 🔑 Étape 5 : Variables d'environnement & Sécurisation
-* **Objectif :** Connecter de manière sécurisée et automatisée l'environnement de build de GitHub avec notre instance de base de données Supabase.
-* **Réalisation :** * Automatisation via un script de capture d'inputs (`step6_env_config.sh`).
-    * Création locale du fichier de configuration `.env.local`.
-    * Injection des variables système `NEXT_PUBLIC_SUPABASE_URL` et `NEXT_PUBLIC_SUPABASE_ANON_KEY` lors de l'étape de compilation statique (Build) dans le workflow GitHub Actions.
+echo "📝 Création du fichier DOCUMENTATION.md effectuée."
+
+# Sauvegarde et push automatique sur ton dépôt
+git add DOCUMENTATION.md
+git commit -m "Docs: Création du fichier de documentation projet"
+git push origin main
+
+echo "🎯 DOCUMENTATION.md est en ligne sur ton GitHub !"
