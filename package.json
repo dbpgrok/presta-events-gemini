@@ -3,5 +3,11 @@
     "@supabase/supabase-js": "^2.110.5",
     "date-fns": "^4.4.0",
     "lucide-react": "^1.24.0"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   }
 }
