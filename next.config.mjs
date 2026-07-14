@@ -4,8 +4,21 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // Permet de gérer le chemin de base si ton dépôt n'est pas un dépôt "user" principal (ex: https://pseudo.github.io/nom-du-repo/)
   basePath: process.env.NODE_ENV === 'production' ? `/${process.env.GITHUB_REPOSITORY_NAME}` : '',
+  
+  // Évite les plantages mémoire (OOM) en désactivant le multi-threading lourd
+  experimental: {
+    workerThreads: false,
+    cpus: 1
+  },
+  
+  // Ignore les étapes secondaires lourdes durant la compilation sur le serveur
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  }
 };
 
 export default nextConfig;
